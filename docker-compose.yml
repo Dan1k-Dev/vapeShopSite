@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  dragonvapeshopapi:
+    image: ${DOCKER_REGISTRY-}dragonvapeshopapi
+    build:
+      context: .
+      dockerfile: DragonVapeShopAPI/Dockerfile
+      ports:
+      - 8000:80
+      depends_on:
+      - DESKTOP-CMGFHNU
+      DESKTOP-CMGFHNU:
+      image: mcr.microsoft.com/mssql/server
+      eviroiment:
+      SA_PASSWORD: lfybr,l!@#
+      ACCEPT_EULA: "Y"
